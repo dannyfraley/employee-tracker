@@ -164,49 +164,66 @@ function addEmp() {
       let managers = resEmp.map(function (employee) {
         return employee.first_name + " " + employee.last_name
       })
-      inquirer.prompt([
-        {
-          type: "input",
-          message: "What is the employee's first name?",
-          name: "firstName"
-        },
-        {
-          type: "input",
-          message: "What is the employee's last name?",
-          name: "lastName"
-        },
-        {
-          type: "list",
-          message: "What is the employee's role?",
-          name: "empRole",
-          choices: titles
-        },
-        {
-          type: "list",
-          message: "Who is the employee's manager?",
-          name: "empMgr",
-          choices: managers
-        },
-      ]).then(function (userInput) {
-        let role = res.find(function (role) {
-          return role.title === userInput.empRole
+      connection.query("SELECT * FROM department", function (err, resDept) {
+        let departments = resDept.map(function (department) {
+          return department.dept_name
         })
-        // console.log (role)
-        let roleID = role.id
-        let employee = resEmp.find(function (employee) {
-          return (employee.first_name + " " + employee.last_name) === userInput.empMgr
-        })
-        // console.log(employee)
-        let managerID = employee.id
+        inquirer.prompt([
+          {
+            type: "input",
+            message: "What is the employee's first name?",
+            name: "firstName"
+          },
+          {
+            type: "input",
+            message: "What is the employee's last name?",
+            name: "lastName"
+          },
+          {
+            type: "list",
+            message: "What is the employee's role?",
+            name: "empRole",
+            choices: titles
+          },
+          {
+            type: "list",
+            message: "What department is the employee in?",
+            name: "empDept",
+            choices: departments
+          },
+          {
+            type: "list",
+            message: "Who is the employee's manager?",
+            name: "empMgr",
+            choices: managers
+          },
+        ]).then(function (userInput) {
+          let role = res.find(function (role) {
+            return role.title === userInput.empRole
+          })
+          // console.log (role)
+          let roleID = role.id
+          let employee = resEmp.find(function (employee) {
+            return (employee.first_name + " " + employee.last_name) === userInput.empMgr
+          })
+          // console.log(employee)
+          let managerID = employee.id
 
-        connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES(?, ?, ?, ?)", [userInput.firstName, userInput.lastName, roleID, managerID], function (err, res) {
-          console.log("Employee added!")
-          mainMenu();
+          connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES(?, ?, ?, ?)", [userInput.firstName, userInput.lastName, roleID, managerID], function (err, res) {
+            // connection.query("INSERT INTO * FROM department", function (err, resDept) {
+            //   let departments = resDept.map(function (department) {
+            //     return department.dept_name
+            //   })
+            console.log("Employee added!")
+            mainMenu();
+
+          })
         })
       })
     })
   })
 }
+
 
 function addDept() {
   inquirer.prompt({
@@ -226,10 +243,10 @@ function addRole() {
     let depts = res.map(function (department) {
       return department.dept_name
     })
-    // connection.query("SELECT * FROM employee", function (err, resEmp) {
-    //   let managers = resEmp.map(function (employee) {
-    //     return employee.first_name + " " + employee.last_name
-    //   })
+  //   // connection.query("SELECT * FROM employee", function (err, resEmp) {
+  //   //   let managers = resEmp.map(function (employee) {
+  //   //     return employee.first_name + " " + employee.last_name
+  //   //   })
       inquirer.prompt([
         {
           type: "input",
@@ -251,7 +268,32 @@ function addRole() {
         let department = res.find(function (department) {
           return department.dept_name === userInput.depts
         })
-        let roleDept = department.dept_name
+        let roleTitle = userInput.roleTitle
+        // let department = userInput.roleDept
+        let roleSalary = userInput.roleSalary
+
+        connection.query(
+          "INSERT INTO role SET ?",
+          {
+            title: roleTitle,
+            department_id: department,
+            salary: roleSalary
+          },
+          function(err, res) {
+            if (err) throw err;
+            
+          });
+          console.log("Role added!")
+          mainMenu();
+        });
+      }
+  )}
+      
+
+        // let department = res.find(function (department) {
+        //   return department.dept_name === userInput.depts
+        // })
+        // let roleDept = department.dept_name
         // console.log (role)
         // let roleID = role.id
         // let employee = resEmp.find(function (employee) {
@@ -260,11 +302,11 @@ function addRole() {
         // // console.log(employee)
         // let managerID = employee.id
 
-        connection.query("INSERT INTO role (title, salary, department_id) VALUES(?, ?, ?)", [userInput.roleTitle, userInput.roleSalary, roleDept], function (err, res) {
-          console.log("Role added!")
-          mainMenu();
-        })
-      })
-    })
-   }
+  //       connection.query("INSERT INTO role (title, salary, department_id) VALUES(?, ?, ?)", [userInput.roleTitle, userInput.roleSalary, roleDept], function (err, res) {
+  //         console.log("Role added!")
+  //         mainMenu();
+  //       })
+  //     })
+  //   })
+  //  }
 // }
