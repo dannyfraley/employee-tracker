@@ -27,20 +27,20 @@ EMPLOYR is a Content Management System application that can be used to view and 
 3. Any information that is added, updated, or deleted is then saved to the database.
 4. To exit the program, the user can choose `Quit` from the main menu, or press `ctrl + c`
 
-![EMPLOYRscreenshot1](./assets/EMPLOYRscreenshot1.png)
+![EMPLOYRscreenshot1](./Assets/EMPLOYRscreenshot1.png)
 
-![EMPLOYRscreenshot2](./assets/EMPLOYRscreenshot2.png)
+![EMPLOYRscreenshot2](./Assets/EMPLOYRscreenshot2.png)
 
-![EMPLOYRscreenshot3](./assets/EMPLOYRscreenshot3.png)
+![EMPLOYRscreenshot3](./Assets/EMPLOYRscreenshot3.png)
 
-![EMPLOYRscreenshot4](./assets/EMPLOYRscreenshot4.png)
+![EMPLOYRscreenshot4](./Assets/EMPLOYRscreenshot4.png)
 
-![EMPLOYRscreenshot5](./assets/EMPLOYRscreenshot5.png)
+![EMPLOYRscreenshot5](./Assets/EMPLOYRscreenshot5.png)
 
 <hr>
 
 **Click the image below to watch a video of EMPLOYR in action!**
-<\n>
+
 [![EMPLOYRvideolink](https://img.youtube.com/vi/9rq2H97cziY/0.jpg)](https://youtu.be/9rq2H97cziY) 
 
 <hr>
