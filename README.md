@@ -27,15 +27,22 @@ EMPLOYR is a Content Management System application that can be used to view and 
 3. Any information that is added, updated, or deleted is then saved to the database.
 4. To exit the program, the user can choose `Quit` from the main menu, or press `ctrl + c`
 
-![EMPLOYRscreenshot1](./Assets/EMPLOYRscreenshot1.png)
+![remindScreenshot1](./assets/remindScreenshot1.png)
 
-![EMPLOYRscreenshot2](./Assets/EMPLOYRscreenshot2.png)
+![remindScreenshot2](./assets/remindScreenshot2.png)
 
-![EMPLOYRscreenshot3](./Assets/EMPLOYRscreenshot3.png)
+![remindScreenshot3](./assets/remindScreenshot3.png)
 
-![EMPLOYRscreenshot4](./Assets/EMPLOYRscreenshot4.png)
+![remindScreenshot4](./assets/remindScreenshot4.png)
 
-![EMPLOYRscreenshot5](./Assets/EMPLOYRscreenshot5.png)
+![remindScreenshot6](./assets/remindScreenshot6.png)
+
+<hr>
+
+**Click the image below to watch a video of EMPLOYR in action!**
+[![EMPLOYRvideolink](https://img.youtube.com/vi/9rq2H97cziY/0.jpg)](https://youtu.be/9rq2H97cziY) 
+
+<hr>
 
 
 ## License ![License](https://img.shields.io/badge/LICENSE-MIT-red.svg)
@@ -73,4 +80,3 @@ For question about using this application, please contact me at one of the links
 <a href='https://www.github.com/dannyfraley'>github.com/dannyfraley</a>
 
 <a href='mailto:dannyfraley@gmail.com'>dannyfraley@gmail.com</a>
-
